@@ -1,10 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache.Interface", "Framework\Cache\Interface\Framework.Cache.Interface.csproj", "{B23CE014-7DA1-48E7-831A-96F8E01E38A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache.MemoryCache", "Framework\Cache\MemoryCache\Framework.Cache.MemoryCache.csproj", "{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B23CE014-7DA1-48E7-831A-96F8E01E38A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B23CE014-7DA1-48E7-831A-96F8E01E38A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B23CE014-7DA1-48E7-831A-96F8E01E38A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B23CE014-7DA1-48E7-831A-96F8E01E38A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
