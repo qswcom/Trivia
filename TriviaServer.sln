@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache.Interface",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache.MemoryCache", "Framework\Cache\MemoryCache\Framework.Cache.MemoryCache.csproj", "{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.MessageQueue.Interface", "Framework\MessageQueue\Interface\Framework.MessageQueue.Interface.csproj", "{0D354835-B435-4FCD-AB75-9760637CA6C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.MessageQueue.DelegateMessageQueue", "Framework\MessageQueue\DelegateMessageQueue\Framework.MessageQueue.DelegateMessageQueue.csproj", "{EB10517D-D6F5-437C-9DF5-1D179292E688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D354835-B435-4FCD-AB75-9760637CA6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D354835-B435-4FCD-AB75-9760637CA6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D354835-B435-4FCD-AB75-9760637CA6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D354835-B435-4FCD-AB75-9760637CA6C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB10517D-D6F5-437C-9DF5-1D179292E688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB10517D-D6F5-437C-9DF5-1D179292E688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB10517D-D6F5-437C-9DF5-1D179292E688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB10517D-D6F5-437C-9DF5-1D179292E688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
