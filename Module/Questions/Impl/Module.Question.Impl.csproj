@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Com.Qsw.Module.Question.Impl</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Framework\Cache\Interface\Framework.Cache.Interface.csproj" />
+      <ProjectReference Include="..\..\..\Framework\Session\Impl\Framework.Session.Impl.csproj" />
+      <ProjectReference Include="..\Interface\Module.Question.Interface.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Mappings\QuestionInfoStatistic.hbm.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

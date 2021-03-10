@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false"
+                   assembly="Module.Question.Impl"
+                   namespace="Com.Qsw.Module.Question.Impl">
+    <class name="QuestionInfoStatistic" entity-name="QuestionInfoStatistic" table="QuestionInfoStatistic">
+        <id name="Id" type="Int64">
+            <generator class="native"/>
+        </id>
+
+        <version name="Version"/>
+        <property name="Timestamp" type="UtcDateTime" not-null="true"/>
+
+        <property name="QuestionCategory" length="32"
+                  type="NHibernate.Type.EnumStringType`1[[Com.Qsw.Module.Question.Interface.QuestionCategory, Module.Question.Interface]], NHibernate"/>
+        <property name="Difficult" />
+        <property name="QuestionCount" />
+        
+    </class>
+</hibernate-mapping>
