@@ -1,0 +1,24 @@
+<Project>
+    <PropertyGroup>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Major>1</Major>
+        <Minor>0</Minor>
+        <Revision>0</Revision>
+        <BuildNumber>0</BuildNumber>
+
+        <AssemblyVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyVersion>
+        <AssemblyFileVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyFileVersion>
+        <InformationalVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</InformationalVersion>
+        <PackageVersion>$(Major).$(Minor).$(Revision)</PackageVersion>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(OutputType)'!='Exe'">
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="*.csproj.DotSettings" />
+    </ItemGroup>
+</Project>
