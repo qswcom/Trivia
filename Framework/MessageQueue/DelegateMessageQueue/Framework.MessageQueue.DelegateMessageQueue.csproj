@@ -5,13 +5,9 @@
         <RootNamespace>Com.Qsw.Framework.MessageQueue.DelegateMessageQueue</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
+    <Import Project="../../../SolutionItems/common.props" />
     <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Remove="*.csproj.DotSettings" />
-    </ItemGroup>
-    <ItemGroup>
+      <ProjectReference Include="..\..\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
       <ProjectReference Include="..\Interface\Framework.MessageQueue.Interface.csproj" />
     </ItemGroup>
 

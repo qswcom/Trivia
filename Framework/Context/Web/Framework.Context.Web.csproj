@@ -2,12 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Com.Qsw.Framework.Cache.MemoryCache</RootNamespace>
+        <RootNamespace>Com.Qsw.Framework.Context.Web</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
-    <Import Project="../../../SolutionItems/common.props" />
+
     <ItemGroup>
       <ProjectReference Include="..\..\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
-      <ProjectReference Include="..\Interface\Framework.Cache.Interface.csproj" />
     </ItemGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+   
 </Project>

@@ -6,16 +6,16 @@ using Microsoft.Extensions.Logging;
 
 namespace Com.Qsw.Framework.Cache.MemoryCache
 {
-    public class CacheService : ICacheService
+    public class MemoryCacheService : ICacheService
     {
         private readonly ILogger logger;
 
         private readonly Microsoft.Extensions.Caching.Memory.MemoryCache cache =
             new Microsoft.Extensions.Caching.Memory.MemoryCache(new MemoryCacheOptions());
 
-        public CacheService(ILoggerFactory loggerFactory)
+        public MemoryCacheService(ILoggerFactory loggerFactory)
         {
-            logger = loggerFactory.CreateLogger<CacheService>();
+            logger = loggerFactory.CreateLogger<MemoryCacheService>();
         }
 
         public async Task<T> Set<T>(string key, T value, DateTimeOffset? absoluteExpiration)

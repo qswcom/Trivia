@@ -2,9 +2,14 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Com.Qsw.Framework.MessageQueue.Interface</RootNamespace>
+        <RootNamespace>Com.Qsw.Framework.Session.Interface</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="NHibernate" Version="5.3.6" />
+    </ItemGroup>
     <Import Project="../../../SolutionItems/common.props" />
    
 </Project>

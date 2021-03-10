@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Com.Qsw.Framework.Session.Impl</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
+      <ProjectReference Include="..\Interface\Framework.Session.Interface.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Castle.Core.AsyncInterceptor" Version="2.0.0" />
+    </ItemGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+   
+</Project>

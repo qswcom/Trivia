@@ -5,8 +5,6 @@
         <RootNamespace>Com.Qsw.Framework.Cache.Interface</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
-    <ItemGroup>
-        <None Remove="*.csproj.DotSettings" />
-    </ItemGroup>
+    <Import Project="../../../SolutionItems/common.props" />
 
 </Project>
