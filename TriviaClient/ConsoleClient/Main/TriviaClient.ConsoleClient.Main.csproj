@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Com.Qsw.TriviaClient.ConsoleClient.Main</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="6.1.0" />
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.3" />
+    </ItemGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+
+</Project>
