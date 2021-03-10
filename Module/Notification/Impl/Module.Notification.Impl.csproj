@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Com.Qsw.Module.Notification.Impl</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Framework\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
+      <ProjectReference Include="..\Interface\Module.Notification.Interface.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Service\Impl" />
+    </ItemGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+
+</Project>

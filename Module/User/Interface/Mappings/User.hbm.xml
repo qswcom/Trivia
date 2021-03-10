@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false"
+                   assembly="Module.User.Interface"
+                   namespace="Com.Qsw.Module.User.Interface">
+    <class name="User" entity-name="User" table="User">
+        <id name="Id" type="Int64">
+            <generator class="native"/>
+        </id>
+
+        <version name="Version"/>
+        <property name="Timestamp" type="UtcDateTime" not-null="true"/>
+
+        <property name="UserName" length="128" not-null="true"/>
+    </class>
+</hibernate-mapping>
