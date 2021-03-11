@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Com.Qsw.Framework.Session.Interface;
 
@@ -15,6 +16,11 @@ namespace Com.Qsw.Framework.Session.Impl
         {
             entityByIdDictionary = new Dictionary<long, TEntity>();
             nextAvailableId = 1;
+        }
+
+        public IEnumerable<TEntity> All()
+        {
+            return entityByIdDictionary.Values.AsEnumerable();
         }
 
         public virtual async Task<TEntity> Get(long id)

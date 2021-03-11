@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Com.Qsw.Module.Waiting.Action</RootNamespace>
+        <RootNamespace>Com.Qsw.Module.Waiting.Impl</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <Import Project="../../../SolutionItems/common.props" />
@@ -11,9 +11,7 @@
       <ProjectReference Include="..\..\..\Framework\Context\Web\Framework.Context.Web.csproj" />
       <ProjectReference Include="..\..\..\Framework\MessageQueue\Interface\Framework.MessageQueue.Interface.csproj" />
       <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
-      <ProjectReference Include="..\..\Notification\Interface\Module.Notification.Interface.csproj" />
       <ProjectReference Include="..\..\Room\Interface\Module.Room.Interface.csproj" />
-      <ProjectReference Include="..\..\UserState\Interface\Module.UserState.Interface.csproj" />
       <ProjectReference Include="..\Interface\Module.Waiting.Interface.csproj" />
     </ItemGroup>
 

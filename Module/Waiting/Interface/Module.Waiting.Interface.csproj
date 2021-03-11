@@ -2,17 +2,15 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Com.Qsw.Module.Room.Interface</RootNamespace>
+        <RootNamespace>Com.Qsw.Module.Waiting.Interface</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <Import Project="../../../SolutionItems/common.props" />
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+      <ProjectReference Include="..\..\Room\Interface\Module.Room.Interface.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Exception" />
-    </ItemGroup>
 
 </Project>

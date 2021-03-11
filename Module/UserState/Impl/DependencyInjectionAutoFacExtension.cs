@@ -9,14 +9,17 @@ namespace Com.Qsw.Module.UserState.Impl
         {
             containerBuilder.RegisterType(typeof(UserStateInfoRepository))
                 .SingleInstance().AsImplementedInterfaces();
-            
+
             containerBuilder.RegisterDecorator<UserStateInfoServicePermissionDecorator, IUserStateInfoService>();
             containerBuilder.RegisterDecorator<UserStateInfoServiceValidationDecorator, IUserStateInfoService>();
             containerBuilder.RegisterDecorator<UserStateInfoServiceMessageDecorator, IUserStateInfoService>();
             containerBuilder.RegisterType(typeof(UserStateInfoService))
                 .SingleInstance().AsImplementedInterfaces();
-            
+
             containerBuilder.RegisterType(typeof(NotificationWatchUserStateInfoChangedMonitor))
+                .SingleInstance().AsImplementedInterfaces();
+
+            containerBuilder.RegisterType(typeof(UserConnectionStatusService))
                 .SingleInstance().AsImplementedInterfaces();
         }
     }
