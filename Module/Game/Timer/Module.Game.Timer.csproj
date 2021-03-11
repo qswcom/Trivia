@@ -8,7 +8,10 @@
     <Import Project="../../../SolutionItems/common.props" />
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Framework\Context\Web\Framework.Context.Web.csproj" />
+      <ProjectReference Include="..\..\..\Framework\MessageQueue\Interface\Framework.MessageQueue.Interface.csproj" />
       <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+      <ProjectReference Include="..\Interface\Module.Game.Interface.csproj" />
     </ItemGroup>
 
 

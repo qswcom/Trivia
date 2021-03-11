@@ -11,5 +11,6 @@ namespace Com.Qsw.Module.Room.Interface
         Task<RoomInfo> JoinRoom(long roomId, string userId);
         Task<RoomInfo> LeaveRoom(long roomId, string userId);
         Task<RoomInfo> DeleteRoom(long roomId);
+        Task<RoomInfo> GetRoomAndDelete(string userId, long roomId);
     }
 }

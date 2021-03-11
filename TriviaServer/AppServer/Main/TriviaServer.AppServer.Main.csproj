@@ -23,10 +23,16 @@
       <ProjectReference Include="..\..\..\Framework\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
       <ProjectReference Include="..\..\..\Framework\MessageQueue\DelegateMessageQueue\Framework.MessageQueue.DelegateMessageQueue.csproj" />
       <ProjectReference Include="..\..\..\Framework\Session\Impl\Framework.Session.Impl.csproj" />
+      <ProjectReference Include="..\..\..\Module\Game\Action\Module.Game.Action.csproj" />
+      <ProjectReference Include="..\..\..\Module\Game\Impl\Module.Game.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\Notification\Impl\Module.Notification.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\Questions\Impl\Module.Question.Impl.csproj" />
+      <ProjectReference Include="..\..\..\Module\Room\Action\Module.Room.Action.csproj" />
+      <ProjectReference Include="..\..\..\Module\Room\Impl\Module.Room.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\UserState\Impl\Module.UserState.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\User\Impl\Module.User.Impl.csproj" />
+      <ProjectReference Include="..\..\..\Module\Waiting\Action\Module.Waiting.Action.csproj" />
+      <ProjectReference Include="..\..\..\Module\Waiting\Impl\Module.Waiting.Impl.csproj" />
     </ItemGroup>
 
     <ItemGroup>

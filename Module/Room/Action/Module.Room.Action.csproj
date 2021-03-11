@@ -9,12 +9,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+      <ProjectReference Include="..\..\Game\Action\Module.Game.Action.csproj" />
+      <ProjectReference Include="..\..\Game\Interface\Module.Game.Interface.csproj" />
       <ProjectReference Include="..\..\UserState\Interface\Module.UserState.Interface.csproj" />
       <ProjectReference Include="..\Interface\Module.Room.Interface.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Controller" />
     </ItemGroup>
 
 

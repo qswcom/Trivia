@@ -4,6 +4,8 @@ namespace Com.Qsw.Module.Question.Interface
 {
     public interface IQuestionInfoService
     {
+        Task<QuestionInfo> Get(long id);
+
         /// <summary>
         /// random select a question based on question category and difficult.
         /// </summary>
@@ -11,5 +13,6 @@ namespace Com.Qsw.Module.Question.Interface
         /// <param name="minDifficult"> Min difficult, this service will select the question which difficult between difficult and difficult + 10 </param>
         /// <returns>Selected question info.</returns>
         Task<QuestionInfo> RandomSelect(QuestionCategory questionCategory, int minDifficult);
+
     }
 }

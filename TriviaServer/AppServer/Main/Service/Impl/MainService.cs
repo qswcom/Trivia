@@ -6,9 +6,16 @@ using Com.Qsw.Framework.Cache.MemoryCache;
 using Com.Qsw.Framework.Context.Web;
 using Com.Qsw.Framework.MessageQueue.DelegateMessageQueue;
 using Com.Qsw.Framework.Session.Impl;
+using Com.Qsw.Module.Game.Action;
+using Com.Qsw.Module.Game.Impl;
+using Com.Qsw.Module.Game.Timer;
 using Com.Qsw.Module.Notification.Impl;
 using Com.Qsw.Module.Question.Impl;
+using Com.Qsw.Module.Room.Action;
+using Com.Qsw.Module.Room.Impl;
 using Com.Qsw.Module.UserState.Impl;
+using Com.Qsw.Module.Waiting.Action;
+using Com.Qsw.Module.Waiting.Impl;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -97,6 +104,16 @@ namespace Com.Qsw.TriviaServer.AppServer.Main
             containerBuilder.InitNotification();
             containerBuilder.InitQuestion();
             containerBuilder.InitUserState();
+            
+            containerBuilder.InitWaiting();
+            containerBuilder.InitWaitingAction();
+            
+            containerBuilder.InitRoom();
+            containerBuilder.InitRoomAction();
+            
+            containerBuilder.InitGameTimer();
+            containerBuilder.InitGame();
+            containerBuilder.InitGameAction();
         }
 
         #endregion

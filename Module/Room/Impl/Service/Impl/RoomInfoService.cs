@@ -167,6 +167,28 @@ namespace Com.Qsw.Module.Room.Impl
             return roomInfo;
         }
 
+        [Lock]
+        public async Task<RoomInfo> GetRoomAndDelete(string userId, long roomId)
+        {
+            if (roomId <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(roomId));
+            }
+
+            RoomInfo roomInfo = roomInfoRepository.Get(roomId).Result;
+            if (roomInfo == null)
+            {
+                throw new ArgumentNullException(nameof(roomId));
+            }
+
+            if (roomInfo.OrganizerUserId != userId)
+            {
+                throw new ArgumentException(nameof(userId), "Just organizer can start game.");
+            }
+
+            return await DeleteRoom(roomId);
+        }
+
         #region Message
 
         private async Task SendEntityChangedMessage(RoomChangedMessage roomChangedMessage)

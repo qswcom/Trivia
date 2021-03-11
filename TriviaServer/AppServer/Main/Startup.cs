@@ -63,7 +63,12 @@ namespace Com.Qsw.TriviaServer.AppServer.Main
             #region MVC
 
             IList<string> controllerAssemblyNames = new List<string>
-                {"Module.UserState.Impl"};
+            {
+                "Module.UserState.Impl",
+                "Module.Waiting.Action",
+                "Module.Room.Action",
+                "Module.Game.Action",
+            };
 
             foreach (string controllerAssemblyName in controllerAssemblyNames)
             {

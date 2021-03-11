@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+      <ProjectReference Include="..\..\Questions\Interface\Module.Question.Interface.csproj" />
     </ItemGroup>
 
  

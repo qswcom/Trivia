@@ -9,6 +9,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+      <ProjectReference Include="..\..\Room\Interface\Module.Room.Interface.csproj" />
+      <ProjectReference Include="..\..\UserState\Interface\Module.UserState.Interface.csproj" />
+      <ProjectReference Include="..\Interface\Module.Game.Interface.csproj" />
+      <ProjectReference Include="..\Timer\Module.Game.Timer.csproj" />
     </ItemGroup>
 
 </Project>
