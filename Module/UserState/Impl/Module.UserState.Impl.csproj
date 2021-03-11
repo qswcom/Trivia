@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Com.Qsw.Module.UserState.Impl</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Framework\Context\Web\Framework.Context.Web.csproj" />
+      <ProjectReference Include="..\..\..\Framework\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
+      <ProjectReference Include="..\..\..\Framework\MessageQueue\Interface\Framework.MessageQueue.Interface.csproj" />
+      <ProjectReference Include="..\..\..\Framework\Session\Impl\Framework.Session.Impl.csproj" />
+      <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+      <ProjectReference Include="..\..\Notification\Interface\Module.Notification.Interface.csproj" />
+      <ProjectReference Include="..\Interface\Module.UserState.Interface.csproj" />
+    </ItemGroup>
+
+
+</Project>

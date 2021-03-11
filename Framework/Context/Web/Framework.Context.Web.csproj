@@ -9,6 +9,10 @@
     <ItemGroup>
       <ProjectReference Include="..\..\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Exception" />
+    </ItemGroup>
     <Import Project="../../../SolutionItems/common.props" />
    
 </Project>

@@ -13,7 +13,7 @@ namespace Com.Qsw.Framework.MessageQueue.DelegateMessageQueue
             await consumerHandler.Publish(key, value);
         }
 
-        public async Task AddConsumer<TValue>(string groupId, string topic, Action<string, TValue> messageHandler)
+        public async Task AddConsumer<TValue>(string groupId, string topic, Func<string, TValue, Task> messageHandler)
         {
             if (string.IsNullOrWhiteSpace(groupId))
             {

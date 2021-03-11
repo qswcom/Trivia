@@ -25,6 +25,7 @@
       <ProjectReference Include="..\..\..\Framework\Session\Impl\Framework.Session.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\Notification\Impl\Module.Notification.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\Questions\Impl\Module.Question.Impl.csproj" />
+      <ProjectReference Include="..\..\..\Module\UserState\Impl\Module.UserState.Impl.csproj" />
       <ProjectReference Include="..\..\..\Module\User\Impl\Module.User.Impl.csproj" />
     </ItemGroup>
 

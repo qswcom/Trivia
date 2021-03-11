@@ -6,6 +6,6 @@ namespace Com.Qsw.Framework.MessageQueue.Interface
     public interface IMessageService
     {
         Task Publish<TValue>(string topic, string key, TValue value);
-        Task AddConsumer<TValue>(string groupId, string topic, Action<string, TValue> messageHandler);
+        Task AddConsumer<TValue>(string groupId, string topic, Func<string, TValue, Task> messageHandler);
     }
 }

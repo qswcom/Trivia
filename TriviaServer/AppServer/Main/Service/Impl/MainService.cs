@@ -8,8 +8,10 @@ using Com.Qsw.Framework.MessageQueue.DelegateMessageQueue;
 using Com.Qsw.Framework.Session.Impl;
 using Com.Qsw.Module.Notification.Impl;
 using Com.Qsw.Module.Question.Impl;
+using Com.Qsw.Module.UserState.Impl;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NHibernate;
@@ -68,8 +70,14 @@ namespace Com.Qsw.TriviaServer.AppServer.Main
                 });
 
             IHost host = hostBuilder.Build();
+            IServiceProvider serviceProvider = host.Services;
+            foreach (IMonitor service in serviceProvider.GetServices<IMonitor>())
+            {
+                service.Start();
+            }
+
             host.Start();
-            return host.Services;
+            return serviceProvider;
         }
 
         #endregion
@@ -88,6 +96,7 @@ namespace Com.Qsw.TriviaServer.AppServer.Main
 
             containerBuilder.InitNotification();
             containerBuilder.InitQuestion();
+            containerBuilder.InitUserState();
         }
 
         #endregion

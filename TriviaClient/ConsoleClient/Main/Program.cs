@@ -4,9 +4,9 @@ using Autofac;
 
 namespace Com.Qsw.TriviaClient.ConsoleClient.Main
 {
-    class Program
+    internal static class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             Console.WriteLine("Welcome to Trivia game.");
             Console.WriteLine("Please enter you user name:(any string)");
@@ -17,32 +17,34 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
                 return;
             }
 
+            var userInfo = new UserInfo
+            {
+                UserId = userName
+            };
+
             IContainer container = InitDependency();
             var notificationService = container.Resolve<INotificationService>();
             try
             {
-                await notificationService.ConnectToServer(userName);
+                await notificationService.ConnectToServer();
             }
             catch (Exception e)
             {
                 Console.WriteLine($"Error on connect to remote server, error message: {e.Message}");
-                return;
             }
-            
-            
         }
 
         #region Dependency
-        
+
         private static IContainer InitDependency()
         {
-            ContainerBuilder containerBuilder = new ContainerBuilder();
+            var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterType(typeof(ServerInfoService)).SingleInstance().AsImplementedInterfaces();
             containerBuilder.RegisterType(typeof(NotificationService)).SingleInstance().AsImplementedInterfaces();
 
             return containerBuilder.Build();
         }
-        
+
         #endregion
     }
 }

@@ -7,14 +7,14 @@ namespace Com.Qsw.Framework.MessageQueue.DelegateMessageQueue
     internal class GroupConsumerHandler<TValue>
     {
         private readonly object handlerLock;
-        private readonly IList<Action<string, TValue>> handlers;
+        private readonly IList<Func<string, TValue, Task>> handlers;
         private readonly Random random;
 
         public GroupConsumerHandler(string topic, string groupId)
         {
             Topic = topic;
             GroupId = groupId;
-            handlers = new List<Action<string, TValue>>();
+            handlers = new List<Func<string, TValue, Task>>();
             handlerLock = new object();
             random = new Random(DateTime.Now.Millisecond);
         }
@@ -22,7 +22,7 @@ namespace Com.Qsw.Framework.MessageQueue.DelegateMessageQueue
         public string Topic { get; }
         public string GroupId { get; }
 
-        public void AddHandler(Action<string, TValue> handler)
+        public void AddHandler(Func<string, TValue, Task> handler)
         {
             lock (handlerLock)
             {
@@ -32,7 +32,7 @@ namespace Com.Qsw.Framework.MessageQueue.DelegateMessageQueue
 
         public Task Handle(string key, TValue value)
         {
-            Action<string, TValue> action = null;
+            Func<string, TValue, Task> action = null;
             lock (handlerLock)
             {
                 var next = random.Next(0, handlers.Count);
@@ -41,7 +41,7 @@ namespace Com.Qsw.Framework.MessageQueue.DelegateMessageQueue
             }
 
             if (action != null)
-                return Task.Run(() => action.Invoke(key, value));
+                return action.Invoke(key, value);
             return Task.CompletedTask;
         }
     }
