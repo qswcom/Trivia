@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Com.Qsw.Module.Game.Action</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <Import Project="../../../SolutionItems/common.props" />
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Framework\Session\Interface\Framework.Session.Interface.csproj" />
+    </ItemGroup>
+
+</Project>

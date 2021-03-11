@@ -6,7 +6,10 @@ namespace Com.Qsw.Framework.Session.Impl
     {
         public static void InitSession(this ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType(typeof(ServiceSessionFactoryAsyncInterceptor)).SingleInstance()
+            containerBuilder.RegisterType(typeof(LockAsyncInterceptor)).SingleInstance()
+                .AsImplementedInterfaces();
+            
+            containerBuilder.RegisterType(typeof(TransactionAsyncInterceptor)).SingleInstance()
                 .AsImplementedInterfaces();
             
             containerBuilder.RegisterType(typeof(SessionService)).SingleInstance()

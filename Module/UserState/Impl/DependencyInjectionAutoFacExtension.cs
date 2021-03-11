@@ -1,5 +1,6 @@
 using Autofac;
-using Com.Qsw.Module.UserState.Interface;
+using Autofac.Extras.DynamicProxy;
+using Com.Qsw.Framework.Session.Impl;
 
 namespace Com.Qsw.Module.UserState.Impl
 {
@@ -10,11 +11,10 @@ namespace Com.Qsw.Module.UserState.Impl
             containerBuilder.RegisterType(typeof(UserStateInfoRepository))
                 .SingleInstance().AsImplementedInterfaces();
 
-            containerBuilder.RegisterDecorator<UserStateInfoServicePermissionDecorator, IUserStateInfoService>();
-            containerBuilder.RegisterDecorator<UserStateInfoServiceValidationDecorator, IUserStateInfoService>();
-            containerBuilder.RegisterDecorator<UserStateInfoServiceMessageDecorator, IUserStateInfoService>();
             containerBuilder.RegisterType(typeof(UserStateInfoService))
-                .SingleInstance().AsImplementedInterfaces();
+                .SingleInstance().AsImplementedInterfaces()
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(LockInterceptor));
 
             containerBuilder.RegisterType(typeof(NotificationWatchUserStateInfoChangedMonitor))
                 .SingleInstance().AsImplementedInterfaces();

@@ -6,11 +6,11 @@ using Com.Qsw.Framework.Session.Interface;
 
 namespace Com.Qsw.Framework.Session.Impl
 {
-    public class ServiceSessionFactoryAsyncInterceptor : AsyncInterceptorBase
+    public class TransactionAsyncInterceptor : AsyncInterceptorBase, ITransactionAsyncInterceptor
     {
         private readonly ISessionService sessionService;
 
-        public ServiceSessionFactoryAsyncInterceptor(ISessionService sessionService)
+        public TransactionAsyncInterceptor(ISessionService sessionService)
         {
             this.sessionService = sessionService;
         }

@@ -45,7 +45,6 @@ namespace Com.Qsw.Module.Waiting.Action
                     WaitingActionConstants.NewRoomNotificationUserMaxNum);
 
                 await waitingService.AddRoomUserInfo(roomChangedMessage.RoomInfo.Id, userIds);
-
                 await waitingNotificationService.NotifyRoomChanged(roomChangedMessage, userIds);
             }
         }

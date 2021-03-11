@@ -2,11 +2,11 @@ using Castle.DynamicProxy;
 
 namespace Com.Qsw.Framework.Session.Impl
 {
-    public class TransactionAttributeInterceptor : IInterceptor
+    public class LockInterceptor : IInterceptor
     {
         private readonly IAsyncInterceptor asyncInterceptor;
 
-        public TransactionAttributeInterceptor(IAsyncInterceptor asyncInterceptor)
+        public LockInterceptor(ILockAsyncInterceptor asyncInterceptor)
         {
             this.asyncInterceptor = asyncInterceptor;
         }
