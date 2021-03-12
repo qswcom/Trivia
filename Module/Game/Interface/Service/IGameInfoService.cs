@@ -9,6 +9,6 @@ namespace Com.Qsw.Module.Game.Interface
         Task<GameInfo> RetrieveQuestion(long gameId, string userId);
         Task SubmitAnswer(long gameId, string userId, string answer);
         Task LeftGame(long gameId, string userId);
-        Task OnTimeExpired(long gameId, string userId);
+        Task OnTimeExpired(long gameId, string userId, int questionIndex);
     }
 }

@@ -13,6 +13,7 @@ namespace Com.Qsw.Module.Question.Interface
         public string Question { get; set; }
         public IList<string> Answers { get; set; }
 
+        [JsonIgnore]
         public string AnswersJson
         {
             get => JsonConvert.SerializeObject(Answers);

@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
+using Com.Qsw.Framework.Session.Interface;
 using Com.Qsw.Module.Game.Interface;
+using Com.Qsw.Module.Question.Interface;
 using Com.Qsw.Module.UserState.Interface;
 
 namespace Com.Qsw.Module.Game.Action
@@ -18,6 +20,12 @@ namespace Com.Qsw.Module.Game.Action
         public async Task<GameInfo> RetrieveQuestion(long gameId, string userId)
         {
             GameInfo gameInfo = await gameInfoService.RetrieveQuestion(gameId, userId);
+            gameInfo = gameInfo.Clone();
+            foreach (QuestionInfo questionInfo in gameInfo.GameQuestionInfo.QuestionInfoList)
+            {
+                questionInfo.CorrectAnswer = null;
+            }
+
             return gameInfo;
         }
 

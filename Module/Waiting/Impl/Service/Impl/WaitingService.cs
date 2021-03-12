@@ -56,7 +56,7 @@ namespace Com.Qsw.Module.Waiting.Impl
         [Lock]
         public Task AddRoomUserInfo(IList<long> roomIds, string userId)
         {
-            if (roomIds == null || roomIds.Count < 0)
+            if (roomIds == null)
             {
                 throw new ArgumentNullException(nameof(roomIds));
             }
@@ -88,6 +88,11 @@ namespace Com.Qsw.Module.Waiting.Impl
                 waitingNumByUserIdDictionary[userId] = waitingNum + 1;
             }
 
+            if (!waitingNumByUserIdDictionary.ContainsKey(userId))
+            {
+                waitingNumByUserIdDictionary[userId] = 0;
+            }
+
             return Task.CompletedTask;
         }
 
@@ -99,30 +104,30 @@ namespace Com.Qsw.Module.Waiting.Impl
                 throw new ArgumentOutOfRangeException(nameof(roomId));
             }
 
-            if (userIds == null || userIds.Count < 0)
-            {
-                throw new ArgumentNullException(nameof(userIds));
-            }
-
-            foreach (string userId in userIds)
-            {
-                if (string.IsNullOrWhiteSpace(userId))
-                {
-                    throw new ArgumentNullException(nameof(userId));
-                }
-            }
-
-            foreach (string userId in userIds)
-            {
-                if (!userIdSetByRoomIdDictionary.TryGetValue(roomId, out ISet<string> userIdSet))
-                {
-                    userIdSet = new HashSet<string>();
-                    userIdSetByRoomIdDictionary[roomId] = userIdSet;
-                }
-
-                userIdSet.Add(userId);
-
-                waitingNumByUserIdDictionary.TryGetValue(userId, out int waitingNum);
+            if (userIds == null)
+                                                             {
+                                                                 throw new ArgumentNullException(nameof(userIds));
+                                                             }
+                                                 
+                                                             foreach (string userId in userIds)
+                                                             {
+                                                                 if (string.IsNullOrWhiteSpace(userId))
+                                                                 {
+                                                                     throw new ArgumentNullException(nameof(userId));
+                                                                 }
+                                                             }
+                                                 
+                                                             foreach (string userId in userIds)
+                                                             {
+                                                                 if (!userIdSetByRoomIdDictionary.TryGetValue(roomId, out ISet<string> userIdSet))
+                                                                 {
+                                                                     userIdSet = new HashSet<string>();
+                                                                     userIdSetByRoomIdDictionary[roomId] = userIdSet;
+                                                                 }
+                                                 
+                                                                 userIdSet.Add(userId);
+                                                 
+                                                                 waitingNumByUserIdDictionary.TryGetValue(userId, out int waitingNum);
                 waitingNumByUserIdDictionary[userId] = waitingNum + 1;
             }
 

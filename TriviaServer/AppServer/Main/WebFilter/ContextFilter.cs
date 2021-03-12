@@ -9,15 +9,11 @@ namespace Com.Qsw.TriviaServer.AppServer.Main
     {
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            IIdentity identity = context.HttpContext?.User?.Identity;
-            if (identity != null && identity.IsAuthenticated)
-            {
-                string clientId = context.HttpContext.Request.Headers["client_id"];
-                CallContext.SetData(CallContextConstants.ClientIdName, clientId);
+            string clientId = context.HttpContext.Request.Headers["client_id"];
+            CallContext.SetData(CallContextConstants.ClientIdName, clientId);
 
-                string userId = context.HttpContext.Request.Headers["user_id"];
-                CallContext.SetData(CallContextConstants.UserIdName, userId);
-            }
+            string userId = context.HttpContext.Request.Headers["user_id"];
+            CallContext.SetData(CallContextConstants.UserIdName, userId);
 
             await next();
         }

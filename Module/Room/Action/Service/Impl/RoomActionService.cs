@@ -30,7 +30,10 @@ namespace Com.Qsw.Module.Room.Action
         public async Task LeaveRoom(string userId, long roomId)
         {
             await userStateInfoService.SetUserStateToWaiting(userId);
-            await roomInfoService.LeaveRoom(roomId, userId);
+            if (roomId > 0)
+            {
+                await roomInfoService.LeaveRoom(roomId, userId);
+            }
         }
 
         public async Task StartGame(string userId, long roomId)

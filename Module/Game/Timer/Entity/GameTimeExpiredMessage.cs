@@ -7,5 +7,6 @@ namespace Com.Qsw.Module.Game.Timer
     {
         public long GameId { get; set; }
         public string UserId { get; set; }
+        public int QuestionIndex { get; set; }
     }
 }

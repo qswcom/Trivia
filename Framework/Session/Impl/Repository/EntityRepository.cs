@@ -138,7 +138,7 @@ namespace Com.Qsw.Framework.Session.Impl
 
         protected virtual string GetTableEntityName()
         {
-            return $"{nameof(TEntity)}";
+            return $"{typeof(TEntity).Name}";
         }
 
         #endregion

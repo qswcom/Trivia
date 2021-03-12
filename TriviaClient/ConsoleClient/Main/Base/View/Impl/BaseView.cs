@@ -52,6 +52,7 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
             if (CommandInfoByInputDictionary.TryGetValue(input, out CommandInfo commandInfo))
             {
                 commandInfo.Action.Invoke();
+                return true;
             }
 
             return false;

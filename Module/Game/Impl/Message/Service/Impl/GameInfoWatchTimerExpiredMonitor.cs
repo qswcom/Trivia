@@ -32,7 +32,8 @@ namespace Com.Qsw.Module.Game.Impl
         {
             try
             {
-                await gameInfoService.OnTimeExpired(gameTimeExpiredMessage.GameId, gameTimeExpiredMessage.UserId);
+                await gameInfoService.OnTimeExpired(gameTimeExpiredMessage.GameId, gameTimeExpiredMessage.UserId,
+                    gameTimeExpiredMessage.QuestionIndex);
             }
             catch (Exception e)
             {

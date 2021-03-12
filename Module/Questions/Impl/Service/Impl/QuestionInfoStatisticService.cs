@@ -46,14 +46,13 @@ namespace Com.Qsw.Module.Question.Impl
                 logger.LogError(e, $"Error on get cache by key {cacheName}");
             }
 
-            int maxDifficult = minDifficult + QuestionConstants.QuestionSelectDifficultRange;
             using SessionWrapper sessionWrapper = questionInfoStatisticRepository.GetSessionWrapper(true);
             using TransactionWrapper transactionWrapper = sessionWrapper.BuildTransaction(true);
             IQueryable<QuestionInfoStatistic> questionInfoStatisticQuery =
                 questionInfoStatisticRepository.GetQueryable(sessionWrapper);
             questionInfoStatisticQuery = questionInfoStatisticQuery.Where(m => m.QuestionCategory == questionCategory);
             questionInfoStatisticQuery =
-                questionInfoStatisticQuery.Where(m => m.Difficult >= minDifficult && m.Difficult < maxDifficult);
+                questionInfoStatisticQuery.Where(m => m.Difficult == minDifficult);
             int questionCount = await questionInfoStatisticQuery.Select(m => m.QuestionCount).SumAsync();
 
             try

@@ -47,14 +47,14 @@ namespace Com.Qsw.TriviaServer.AppServer.Main
 
             #endregion
 
-            #region
+            #region MVC
 
             IMvcBuilder mvcBuilder = services.AddControllers(options => { options.Filters.Add<ContextFilter>(); });
             mvcBuilder.SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             mvcBuilder.AddNewtonsoftJson(options =>
             {
-                options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
 

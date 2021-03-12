@@ -188,7 +188,7 @@ namespace Com.Qsw.Module.Game.Impl
         }
 
         [Lock]
-        public async Task OnTimeExpired(long gameId, string userId)
+        public async Task OnTimeExpired(long gameId, string userId, int questionIndex)
         {
             GameInfo gameInfo = await gameInfoRepository.Get(gameId);
             if (gameInfo == null)
@@ -212,7 +212,7 @@ namespace Com.Qsw.Module.Game.Impl
                 return;
             }
 
-            GameUserQuestionInfo gameUserQuestionInfo = gameUserInfo.GameUserQuestionInfoList.Last();
+            GameUserQuestionInfo gameUserQuestionInfo = gameUserInfo.GameUserQuestionInfoList[questionIndex];
             if (gameUserQuestionInfo.GameUserQuestionState == GameUserQuestionState.NotStart ||
                 gameUserQuestionInfo.GameUserQuestionState == GameUserQuestionState.Process)
             {

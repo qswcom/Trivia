@@ -4,6 +4,6 @@ namespace Com.Qsw.Module.Game.Interface
 {
     public static class GameConstants
     {
-        public static TimeSpan QuestionAnswerTimeSpan => TimeSpan.FromSeconds(10);
+        public static TimeSpan QuestionAnswerTimeSpan => TimeSpan.FromSeconds(30);
     }
 }

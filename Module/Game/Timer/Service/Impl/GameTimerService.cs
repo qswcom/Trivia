@@ -34,7 +34,7 @@ namespace Com.Qsw.Module.Game.Timer
                 dateTime <= endDateTime;
                 dateTime = dateTime.AddSeconds(1))
             {
-                dateTimeQueue.Enqueue(utcNow);
+                dateTimeQueue.Enqueue(dateTime);
                 gameUserTimeInfosByDateTimeDic[dateTime] = new LinkedList<GameUserTimeInfo>();
             }
         }
@@ -63,6 +63,7 @@ namespace Com.Qsw.Module.Game.Timer
                     {
                         GameId = gameInfo.Id,
                         UserId = userId,
+                        QuestionIndex = gameInfo.GameQuestionInfo.QuestionInfoList.Count - 1,
                         TriggerDateTime = expireDateTime
                     });
             }
@@ -74,69 +75,81 @@ namespace Com.Qsw.Module.Game.Timer
 
         private void Monitor()
         {
-            DateTime utcNow = DateTime.UtcNow;
-            IList<GameUserTimeInfo> gameUserTimeInfos = new List<GameUserTimeInfo>();
-            lock (this)
+            while (true)
             {
-                DateTime utcNowWithoutMilli = TrimMilli(utcNow);
-                while (startDateTime < utcNowWithoutMilli)
+                DateTime utcNow = DateTime.UtcNow;
+                IList<GameUserTimeInfo> gameUserTimeInfos = new List<GameUserTimeInfo>();
+                lock (this)
                 {
-                    DateTime dateTime = dateTimeQueue.Dequeue();
-                    LinkedList<GameUserTimeInfo> userTimeInfos = gameUserTimeInfosByDateTimeDic[dateTime];
-                    foreach (GameUserTimeInfo gameUserTimeInfo in userTimeInfos)
+                    DateTime utcNowWithoutMilli = TrimMilli(utcNow);
+                    while (startDateTime < utcNowWithoutMilli)
                     {
-                        gameUserTimeInfos.Add(gameUserTimeInfo);
+                        if (dateTimeQueue.Count > 1)
+                        {
+                            DateTime dateTime = dateTimeQueue.Dequeue();
+                            LinkedList<GameUserTimeInfo> userTimeInfos = gameUserTimeInfosByDateTimeDic[dateTime];
+                            foreach (GameUserTimeInfo gameUserTimeInfo in userTimeInfos)
+                            {
+                                gameUserTimeInfos.Add(gameUserTimeInfo);
+                            }
+
+                            gameUserTimeInfosByDateTimeDic.Remove(dateTime);
+                            startDateTime = dateTimeQueue.Peek();
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
 
-                    gameUserTimeInfosByDateTimeDic.Remove(dateTime);
-                    startDateTime = dateTimeQueue.Peek();
+                    LinkedList<GameUserTimeInfo> gameUseTimeInfoLinkedList =
+                        gameUserTimeInfosByDateTimeDic[startDateTime];
+                    LinkedListNode<GameUserTimeInfo> current = gameUseTimeInfoLinkedList.First;
+                    while (current != null)
+                    {
+                        if (current.Value.TriggerDateTime <= utcNow)
+                        {
+                            gameUserTimeInfos.Add(current.Value);
+                            LinkedListNode<GameUserTimeInfo> temp = current.Next;
+                            gameUseTimeInfoLinkedList.Remove(current);
+                            current = temp;
+                        }
+                        else
+                        {
+                            current = current.Next;
+                        }
+                    }
+
+                    DateTime nextEndDateTime =
+                        startDateTime.Add(TimeSpan.FromSeconds(GameTimerConstants.MaxInternalInSeconds));
+                    while (true)
+                    {
+                        DateTime nextDateTime = endDateTime.AddSeconds(1);
+                        if (nextDateTime > nextEndDateTime)
+                        {
+                            break;
+                        }
+
+                        dateTimeQueue.Enqueue(nextDateTime);
+                        gameUserTimeInfosByDateTimeDic[nextDateTime] = new LinkedList<GameUserTimeInfo>();
+                        endDateTime = nextDateTime;
+                    }
                 }
 
-                LinkedList<GameUserTimeInfo> gameUseTimeInfoLinkedList = gameUserTimeInfosByDateTimeDic[startDateTime];
-                LinkedListNode<GameUserTimeInfo> current = gameUseTimeInfoLinkedList.First;
-                while (current != null)
+                try
                 {
-                    if (current.Value.TriggerDateTime <= utcNow)
-                    {
-                        gameUserTimeInfos.Add(current.Value);
-                        LinkedListNode<GameUserTimeInfo> temp = current.Next;
-                        gameUseTimeInfoLinkedList.Remove(current);
-                        current = temp;
-                    }
-                    else
-                    {
-                        current = current.Next;
-                    }
+                    SendMessages(gameUserTimeInfos);
                 }
-
-                DateTime nextEndDateTime =
-                    startDateTime.Add(TimeSpan.FromSeconds(GameTimerConstants.MaxInternalInSeconds));
-                while (true)
+                catch (Exception e)
                 {
-                    DateTime nextDateTime = endDateTime.AddSeconds(1);
-                    if (nextDateTime > nextEndDateTime)
-                    {
-                        break;
-                    }
-
-                    dateTimeQueue.Enqueue(nextDateTime);
-                    gameUserTimeInfosByDateTimeDic[nextDateTime] = new LinkedList<GameUserTimeInfo>();
-                    endDateTime = nextDateTime;
+                    logger.LogError(e, "Error on send time message.");
+                }
+                finally
+                {
+                    Thread.Sleep(TimeSpan.FromMilliseconds(40));
                 }
             }
 
-            try
-            {
-                SendMessages(gameUserTimeInfos);
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e, "Error on send time message.");
-            }
-            finally
-            {
-                Thread.Sleep(TimeSpan.FromMilliseconds(40));
-            }
         }
 
         private void SendMessages(IList<GameUserTimeInfo> gameUserTimeInfos)
@@ -156,7 +169,8 @@ namespace Com.Qsw.Module.Game.Timer
                             new GameTimeExpiredMessage
                             {
                                 GameId = gameUserTimeInfo.GameId,
-                                UserId = gameUserTimeInfo.UserId
+                                UserId = gameUserTimeInfo.UserId,
+                                QuestionIndex = gameUserTimeInfo.QuestionIndex
                             });
                     }
                     catch (Exception e)
@@ -186,6 +200,7 @@ namespace Com.Qsw.Module.Game.Timer
         {
             public long GameId { get; set; }
             public string UserId { get; set; }
+            public int QuestionIndex { get; set; }
             public DateTime TriggerDateTime { get; set; }
         }
 

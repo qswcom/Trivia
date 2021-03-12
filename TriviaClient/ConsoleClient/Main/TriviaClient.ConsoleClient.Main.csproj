@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <Folder Include="Base\Service\Impl" />
-      <Folder Include="UserState\Service\Impl" />
+      <Folder Include="Waiting\Entity" />
     </ItemGroup>
     <Import Project="../../../SolutionItems/common.props" />
 

@@ -20,12 +20,19 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
                 Description = "Show help information.",
                 Action = PrintCommands
             };
+            CommandInfoByInputDictionary["c"] = new CommandInfo
+            {
+                Input = "c",
+                Description = "Clear console.",
+                Action = Clear
+            };
             CommandInfoByInputDictionary["q"] = new CommandInfo
             {
                 Input = "q",
                 Description = "Quit.",
                 Action = mainViewModel.QuitCommand
             };
+           
         }
 
         public override void Dispose()
@@ -53,5 +60,14 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
                 }
             }
         }
+        
+        #region Command
+        
+        private void Clear()
+        {
+            Console.Clear();
+        }
+        
+        #endregion
     }
 }

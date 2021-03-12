@@ -13,6 +13,7 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
         private UserState userState;
         private long roomId;
         private long gameId;
+        private string error;
 
         public UserStateInfoViewModel(IUserStateInfoService userStateInfoService,
             IEntityChangedNotificationService entityChangedNotificationService, IUserInfoService userInfoService)
@@ -21,6 +22,12 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
             this.entityChangedNotificationService = entityChangedNotificationService;
             this.userInfoService = userInfoService;
             this.entityChangedNotificationService.EntityChangedNotification += OnEntityChanged;
+        }
+
+        public string Error
+        {
+            get => error;
+            set => SetValue(ref error, value);
         }
 
         public UserState UserState
@@ -50,12 +57,25 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
 
         public async Task Bind()
         {
-            UserStateInfo userStateInfo = await userStateInfoService.GetOrCreate();
+            UserStateInfo userStateInfo;
+            try
+            {
+                userStateInfo = await userStateInfoService.GetOrCreate();
+            }
+            catch (Exception e)
+            {
+                Error = $"Error on get user state information, please input 'b' to try again. error message: {e.Message}";
+                return;
+            }
             await Bind(userStateInfo);
         }
 
         private async Task Bind(UserStateInfo userStateInfo)
         {
+            await Task.CompletedTask;
+            RoomId = userStateInfo.RoomId;
+            GameId = userStateInfo.GameId;
+            UserState = userStateInfo.UserState;
         }
 
         #endregion
@@ -64,18 +84,25 @@ namespace Com.Qsw.TriviaClient.ConsoleClient.Main
 
         private void OnEntityChanged(EntityChangedNotificationData entityChangedNotificationData)
         {
-            if (!string.Equals(entityChangedNotificationData.EntityType, nameof(UserStateInfo),
-                StringComparison.InvariantCultureIgnoreCase))
+            try
             {
-                return;
-            }
+                if (!string.Equals(entityChangedNotificationData.EntityType, nameof(UserStateInfo),
+                    StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return;
+                }
 
-            var userStateInfoChangedMessage = JsonConvert.DeserializeObject<UserStateInfoChangedMessage>(
-                entityChangedNotificationData
-                    .EntityChangedMessageJson);
-            if (userStateInfoChangedMessage.UserStateInfo.UserId == userInfoService.UserInfo.UserId)
+                var userStateInfoChangedMessage = JsonConvert.DeserializeObject<UserStateInfoChangedMessage>(
+                    entityChangedNotificationData
+                        .EntityChangedMessageJson);
+                if (userStateInfoChangedMessage.UserStateInfo.UserId == userInfoService.UserInfo.UserId)
+                {
+                    Bind(userStateInfoChangedMessage.UserStateInfo).Wait();
+                }
+            }
+            catch (Exception e)
             {
-                Bind(userStateInfoChangedMessage.UserStateInfo).Wait();
+                Error = $"Failed to bind user state info, error message: {e.Message}";
             }
         }
 
