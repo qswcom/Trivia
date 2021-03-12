@@ -1,58 +1,69 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache.Interface", "Framework\Cache\Interface\Framework.Cache.Interface.csproj", "{B23CE014-7DA1-48E7-831A-96F8E01E38A6}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Cache.Interface", "Framework\Cache\Interface\Framework.Cache.Interface.csproj", "{B23CE014-7DA1-48E7-831A-96F8E01E38A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache.MemoryCache", "Framework\Cache\MemoryCache\Framework.Cache.MemoryCache.csproj", "{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Cache.MemoryCache", "Framework\Cache\MemoryCache\Framework.Cache.MemoryCache.csproj", "{13F9ABC5-0297-4B90-BB13-EA65F90CE79E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.MessageQueue.Interface", "Framework\MessageQueue\Interface\Framework.MessageQueue.Interface.csproj", "{0D354835-B435-4FCD-AB75-9760637CA6C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.MessageQueue.Interface", "Framework\MessageQueue\Interface\Framework.MessageQueue.Interface.csproj", "{0D354835-B435-4FCD-AB75-9760637CA6C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.MessageQueue.DelegateMessageQueue", "Framework\MessageQueue\DelegateMessageQueue\Framework.MessageQueue.DelegateMessageQueue.csproj", "{EB10517D-D6F5-437C-9DF5-1D179292E688}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.MessageQueue.DelegateMessageQueue", "Framework\MessageQueue\DelegateMessageQueue\Framework.MessageQueue.DelegateMessageQueue.csproj", "{EB10517D-D6F5-437C-9DF5-1D179292E688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriviaServer.AppServer.Main", "TriviaServer\AppServer\Main\TriviaServer.AppServer.Main.csproj", "{CD2B4589-CB8B-4D11-8D19-789DA31F8F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriviaServer.AppServer.Main", "TriviaServer\AppServer\Main\TriviaServer.AppServer.Main.csproj", "{CD2B4589-CB8B-4D11-8D19-789DA31F8F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.DependencyInjection.AutoFac", "Framework\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj", "{A451C72B-B1E1-44E8-9A5F-ED13C34B3D12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.DependencyInjection.AutoFac", "Framework\DependencyInjection\AutoFac\Framework.DependencyInjection.AutoFac.csproj", "{A451C72B-B1E1-44E8-9A5F-ED13C34B3D12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Session.Interface", "Framework\Session\Interface\Framework.Session.Interface.csproj", "{D5F6321B-AA30-4C1E-9EB2-1C0E9ED0B2D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Session.Interface", "Framework\Session\Interface\Framework.Session.Interface.csproj", "{D5F6321B-AA30-4C1E-9EB2-1C0E9ED0B2D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Session.Impl", "Framework\Session\Impl\Framework.Session.Impl.csproj", "{3FA603FD-641D-47F3-A45E-7A3C8B161D70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Session.Impl", "Framework\Session\Impl\Framework.Session.Impl.csproj", "{3FA603FD-641D-47F3-A45E-7A3C8B161D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Context.Web", "Framework\Context\Web\Framework.Context.Web.csproj", "{C23E167E-AF42-45EF-A9D9-5D02DAE9D58B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Context.Web", "Framework\Context\Web\Framework.Context.Web.csproj", "{C23E167E-AF42-45EF-A9D9-5D02DAE9D58B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.User.Interface", "Module\User\Interface\Module.User.Interface.csproj", "{66A20CFF-6595-453A-80AF-F89DA7A0E89F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.User.Interface", "Module\User\Interface\Module.User.Interface.csproj", "{66A20CFF-6595-453A-80AF-F89DA7A0E89F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.User.Impl", "Module\User\Impl\Module.User.Impl.csproj", "{49D7EFCC-7A5D-4DA3-8171-0D42EB56E409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.User.Impl", "Module\User\Impl\Module.User.Impl.csproj", "{49D7EFCC-7A5D-4DA3-8171-0D42EB56E409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Notification.Interface", "Module\Notification\Interface\Module.Notification.Interface.csproj", "{5F572FC1-F09F-452F-8399-371F07C201B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Notification.Interface", "Module\Notification\Interface\Module.Notification.Interface.csproj", "{5F572FC1-F09F-452F-8399-371F07C201B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Notification.Impl", "Module\Notification\Impl\Module.Notification.Impl.csproj", "{2516D08E-3A28-4A33-B83C-81DFBFD5423B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Notification.Impl", "Module\Notification\Impl\Module.Notification.Impl.csproj", "{2516D08E-3A28-4A33-B83C-81DFBFD5423B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Question.Interface", "Module\Questions\Interface\Module.Question.Interface.csproj", "{CBC8E65C-31BC-4402-9F74-BFFB0DEA6699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Question.Interface", "Module\Questions\Interface\Module.Question.Interface.csproj", "{CBC8E65C-31BC-4402-9F74-BFFB0DEA6699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Question.Impl", "Module\Questions\Impl\Module.Question.Impl.csproj", "{5E571E97-0300-42D6-B34D-BB9538513061}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Question.Impl", "Module\Questions\Impl\Module.Question.Impl.csproj", "{5E571E97-0300-42D6-B34D-BB9538513061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.UserState.Interface", "Module\UserState\Interface\Module.UserState.Interface.csproj", "{D7CDC579-8414-4711-89A9-40F69AFA97F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.UserState.Interface", "Module\UserState\Interface\Module.UserState.Interface.csproj", "{D7CDC579-8414-4711-89A9-40F69AFA97F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.UserState.Impl", "Module\UserState\Impl\Module.UserState.Impl.csproj", "{D1613EEA-4B88-47B7-9EC8-BEE3AC7B984B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.UserState.Impl", "Module\UserState\Impl\Module.UserState.Impl.csproj", "{D1613EEA-4B88-47B7-9EC8-BEE3AC7B984B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Room.Interface", "Module\Room\Interface\Module.Room.Interface.csproj", "{2ED98798-CD46-4937-9554-6FE6EB472474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Room.Interface", "Module\Room\Interface\Module.Room.Interface.csproj", "{2ED98798-CD46-4937-9554-6FE6EB472474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Room.Impl", "Module\Room\Impl\Module.Room.Impl.csproj", "{4EA9AC13-F7F3-4DE4-9AA0-2E0ED80A64F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Room.Impl", "Module\Room\Impl\Module.Room.Impl.csproj", "{4EA9AC13-F7F3-4DE4-9AA0-2E0ED80A64F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Room.Action", "Module\Room\Action\Module.Room.Action.csproj", "{74E76EB4-DACF-43F1-8666-1DAECE619655}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Room.Action", "Module\Room\Action\Module.Room.Action.csproj", "{74E76EB4-DACF-43F1-8666-1DAECE619655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Waiting.Action", "Module\Waiting\Action\Module.Waiting.Action.csproj", "{CB585488-ACC1-4F35-A478-B1714F5DABE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Waiting.Action", "Module\Waiting\Action\Module.Waiting.Action.csproj", "{CB585488-ACC1-4F35-A478-B1714F5DABE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Waiting.Interface", "Module\Waiting\Interface\Module.Waiting.Interface.csproj", "{3966A371-931D-490E-B83F-B09C01A05CD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Waiting.Interface", "Module\Waiting\Interface\Module.Waiting.Interface.csproj", "{3966A371-931D-490E-B83F-B09C01A05CD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Waiting.Impl", "Module\Waiting\Impl\Module.Waiting.Impl.csproj", "{BED6574F-2367-472A-936F-B0ECA3A756F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Waiting.Impl", "Module\Waiting\Impl\Module.Waiting.Impl.csproj", "{BED6574F-2367-472A-936F-B0ECA3A756F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Game.Interface", "Module\Game\Interface\Module.Game.Interface.csproj", "{96CD5D4A-F05A-47AD-BB5E-B11A95F22A2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Game.Interface", "Module\Game\Interface\Module.Game.Interface.csproj", "{96CD5D4A-F05A-47AD-BB5E-B11A95F22A2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Game.Timer", "Module\Game\Timer\Module.Game.Timer.csproj", "{42CEE5C3-FD09-40DE-BDD1-A89BC5E40446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Game.Timer", "Module\Game\Timer\Module.Game.Timer.csproj", "{42CEE5C3-FD09-40DE-BDD1-A89BC5E40446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Game.Impl", "Module\Game\Impl\Module.Game.Impl.csproj", "{7F0F760C-68A8-4DA4-A14B-5F60492C2261}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Game.Impl", "Module\Game\Impl\Module.Game.Impl.csproj", "{7F0F760C-68A8-4DA4-A14B-5F60492C2261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Game.Action", "Module\Game\Action\Module.Game.Action.csproj", "{94153CFB-C0A2-4007-8BFF-D562A7A61FA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Game.Action", "Module\Game\Action\Module.Game.Action.csproj", "{94153CFB-C0A2-4007-8BFF-D562A7A61FA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B4F8C9B7-B478-4605-A7C8-9406AE3A90DD}"
+	ProjectSection(SolutionItems) = preProject
+		Client-Design.docx = Client-Design.docx
+		common.props = SolutionItems\common.props
+		ReadMe.txt = ReadMe.txt
+		Server-Design.docx = Server-Design.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -168,5 +179,11 @@ Global
 		{94153CFB-C0A2-4007-8BFF-D562A7A61FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94153CFB-C0A2-4007-8BFF-D562A7A61FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94153CFB-C0A2-4007-8BFF-D562A7A61FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A8B628B-6B89-4CD3-855F-F00B975201A6}
 	EndGlobalSection
 EndGlobal
